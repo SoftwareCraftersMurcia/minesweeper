@@ -13,29 +13,15 @@ export class Minesweeper {
                 const value = mat[i][j];
                 if (value === '*') {
                     result[i][j] = "*";
-
-                    if (i === 0 && j === 0) {
-                        result[i][j + 1] = "1";
-                        result[i + 1][j] = "1";
-                        result[i + 1][j + 1] = "1";
-                    }
-
-                    if (i === 0 && j === 1) {
-                        result[i][j - 1] = "1";
-                        result[i][j + 1] = "1";
-                        result[i + 1][j - 1] = "1";
-                        result[i + 1][j] = "1";
-                        result[i + 1][j + 1] = "1";
-                    }
-
-                    if (i === 1 && j === 1) {
-                        for (let k = -1; k <= 1; k++) {
-                            for (let l = -1; l <= 1; l++) {
-                                if (k === 0 && l === 0) {
-                                    continue
-                                }
-                                result[i + k][j + l] = "1";
+                    for (let k = -1; k <= 1; k++) {
+                        for (let l = -1; l <= 1; l++) {
+                            if (k === 0 && l === 0) {
+                                continue
                             }
+                            if (i + k < 0 || i + k >= result.length || j + l < 0 || j + l >= result[i].length) {
+                                continue
+                            }
+                            result[i + k][j + l] = "1";
                         }
                     }
                 }
