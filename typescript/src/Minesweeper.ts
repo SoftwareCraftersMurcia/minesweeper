@@ -21,19 +21,26 @@ export class Minesweeper {
     }
 
     private add1BombToAdjacentPositions(result: string[][], originPosX: number, originPosY: number) {
+        function checkLimits(k: number, l: number) {
+            return originPosX + k < 0 || originPosX + k >= result.length || originPosY + l < 0 || originPosY + l >= result[originPosX].length;
+        }
+
         for (let k = -1; k <= 1; k++) {
             for (let l = -1; l <= 1; l++) {
                 if (k === 0 && l === 0) {
                     result[originPosX][originPosY] = "*";
                     continue
                 }
-                if (originPosX + k < 0 || originPosX + k >= result.length || originPosY + l < 0 || originPosY + l >= result[originPosX].length) {
+                if (checkLimits(k, l)) {
                     continue
                 }
-                if(result[originPosX + k][originPosY + l] !== '*') {
-                    result[originPosX + k][originPosY + l] = (parseInt(result[originPosX + k][originPosY + l]) + 1).toString();
+
+                if (result[originPosX + k][originPosY + l] === '*') {
+                    continue;
                 }
+                result[originPosX + k][originPosY + l] = (parseInt(result[originPosX + k][originPosY + l]) + 1).toString();
             }
         }
     }
+
 }
