@@ -17,10 +17,15 @@ export class Minesweeper {
             ]
         }
 
-        return [
-            ['0', '0', '0'],
-            ['0', '0', '0'],
-            ['0', '0', '0']
-        ]
+
+        let result: string[][] = [];
+        for (let i = 0; i < mat.length; i++) {
+            result.push([]);
+            for (let j = 0; j < mat[i].length; j++) {
+                result[i].push('0');
+            }
+        }
+
+        return result
     }
 }
