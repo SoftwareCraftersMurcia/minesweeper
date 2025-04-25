@@ -21,7 +21,7 @@ export class Minesweeper {
                             if (i + k < 0 || i + k >= result.length || j + l < 0 || j + l >= result[i].length) {
                                 continue
                             }
-                            result[i + k][j + l] = "1";
+                            result[i + k][j + l] = (parseInt(result[i + k][j + l]) + 1).toString();
                         }
                     }
                 }
