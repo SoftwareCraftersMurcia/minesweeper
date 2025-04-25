@@ -3,7 +3,11 @@ export class Minesweeper {
 
     calculate(mat: string[][]): string[][] {
         let result = this.initializeMatrix(mat);
+        this.countAdjacentBombs(result, mat);
+        return result
+    }
 
+    private countAdjacentBombs(result: string[][], mat: string[][]) {
         for (let i = 0; i < result.length; i++) {
             for (let j = 0; j < result[i].length; j++) {
                 const value = mat[i][j];
@@ -12,8 +16,6 @@ export class Minesweeper {
                 }
             }
         }
-
-        return result
     }
 
     private initializeMatrix(mat: string[][]): string[][] {
@@ -34,7 +36,7 @@ export class Minesweeper {
                     result[originPosX][originPosY] = this.BOMB;
                     continue
                 }
-                if (this.isOutOfBoundsTemp(result, originPosX + k, originPosY + l, originPosX)) {
+                if (this.isOutOfBoundsTemp(result, originPosX + k, originPosY + l)) {
                     continue
                 }
 
@@ -45,7 +47,7 @@ export class Minesweeper {
             }
         }
     }
-    private isOutOfBoundsTemp(result: string[][], x: number, y: number, originPosX: number) {
-        return x < 0 || x >= result.length || y < 0 || y >= result[originPosX].length;
+    private isOutOfBoundsTemp(result: string[][], x: number, y: number) {
+        return x < 0 || x >= result.length || y < 0 || y >= result[x].length;
     }
 }
