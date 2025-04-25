@@ -18,7 +18,7 @@ describe('MineSweeper', () => {
         ]);
     });
 
-    it.skip('a field with 1 mine in the center has all adjacent to 1', () => {
+    it('a field with 1 mine in the center has all adjacent to 1', () => {
         const mineSweeper = new MineSweeper()
 
         let field = [
