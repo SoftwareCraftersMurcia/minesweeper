@@ -13,9 +13,12 @@ export class MineSweeper {
     }
 
     private solvePosition(x: number, y: number, field: string[][]) {
-        if (this.containsAMine(x, y, field)) {
-            return this._MINE;
-        }
+        return this.containsAMine(x, y, field)
+            ? this._MINE
+            : this.countAdjacentMines(x, y, field).toString();
+    }
+
+    private countAdjacentMines(x: number, y: number, field: string[][]) {
         let count = 0;
         for (let row = y - 1; row <= y + 1; row++) {
             for (let column = x - 1; column <= x + 1; column++) {
@@ -24,7 +27,7 @@ export class MineSweeper {
                 }
             }
         }
-        return count.toString();
+        return count;
     }
 
     private containsAMine(column: number, row: number, field: string[][]) {
