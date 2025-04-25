@@ -1,19 +1,22 @@
 import { Example } from '../src/Example'
 
 describe('kata-setup', () => {
-  
-  let mat: string[][];
-  beforeEach(() => {
-    mat = [
-      ['.', '.', '*'],
-      ['.', '*', '.'],
-      ['.', '.', '.']
-    ]
-  })
-  it('example test', () => {
+  it('empty matrix', () => {
     const example = new Example()
 
-    expect(example.method()).toBe(true)
+      let mat: string[][] = [
+          ['.', '.', '.'],
+          ['.', '.', '.'],
+          ['.', '.', '.']
+      ]
+
+      let expected: string[][] = [
+          ['0', '0', '0'],
+          ['0', '0', '0'],
+          ['0', '0', '0']
+      ]
+
+    expect(example.calculate(mat)).toStrictEqual(expected)
   })
 })
 /*

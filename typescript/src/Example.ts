@@ -1,5 +1,9 @@
 export class Example {
-  method (): boolean {
-    return true
+  calculate (mat: string[][] ): string[][] {
+    return [
+        ['0', '0', '0'],
+        ['0', '0', '0'],
+        ['0', '0', '0']
+    ]
   }
 }
