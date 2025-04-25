@@ -1,4 +1,6 @@
 export class MineSweeper {
+    private readonly _MINE = '*';
+
     solve(field: string[][]): string[][] {
         const result: string[][] = []
         for (let y = 0; y < field.length; y++) {
@@ -11,8 +13,8 @@ export class MineSweeper {
     }
 
     private solvePosition(x: number, y: number, field: string[][]) {
-        if (field[y][x] === '*') {
-            return '*';
+        if (field[y][x] === this._MINE) {
+            return this._MINE;
         }
         let count = 0;
         for (let row = y - 1; row <= y + 1; row++) {
@@ -26,7 +28,7 @@ export class MineSweeper {
     }
 
     private containsAMine(row: number, column: number, field: string[][]) {
-        return this.isValidPosition(row, column, field) && field[row][column] === '*';
+        return this.isValidPosition(row, column, field) && field[row][column] === this._MINE;
     }
 
     private isValidPosition(row: number, column: number, field: string[][]) {
