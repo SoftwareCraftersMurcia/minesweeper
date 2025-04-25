@@ -9,7 +9,7 @@ describe('MineSweeper', () => {
             ['.', '.', '.', '.'],
             ['.', '.', '.', '.'],
         ];
-        let solution = mineSweeper.solve(4, 3, field);
+        let solution = mineSweeper.solve(field);
 
         expect(solution).toEqual([
             ['0', '0', '0', '0'],
@@ -26,7 +26,7 @@ describe('MineSweeper', () => {
             ['.', '.', '*', '.'],
             ['.', '.', '.', '.'],
         ];
-        let solution = mineSweeper.solve(4, 3, field);
+        let solution = mineSweeper.solve(field);
 
         expect(solution).toEqual([
             ['0', '1', '1', '1'],
@@ -43,7 +43,7 @@ describe('MineSweeper', () => {
             ['.', '.', '*', '.'],
             ['.', '.', '.', '.'],
         ];
-        let solution = mineSweeper.solve(4, 3, field);
+        let solution = mineSweeper.solve(field);
 
         expect(solution).toStrictEqual([
             ['*', '2', '1', '1'],

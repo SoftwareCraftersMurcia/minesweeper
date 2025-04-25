@@ -1,9 +1,9 @@
 export class MineSweeper {
-    solve(xSize: number, ySize: number, field: string[][]): string[][] {
+    solve(field: string[][]): string[][] {
         const result: string[][] = []
-        for (let y = 0; y < ySize; y++) {
+        for (let y = 0; y < field.length; y++) {
             result.push([]);
-            for (let x = 0; x < xSize; x++) {
+            for (let x = 0; x < field[y].length; x++) {
                 result[y].push(this.solvePosition(x, y, field));
             }
         }
