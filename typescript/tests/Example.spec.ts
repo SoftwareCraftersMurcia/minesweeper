@@ -1,41 +1,41 @@
-import { Minesweeper } from '../src/Minesweeper'
+import {Minesweeper} from '../src/Minesweeper'
 
 describe('kata-setup', () => {
-  it('empty matrix returns all zeros', () => {
-    const example = new Minesweeper()
+    it('empty matrix returns all zeros', () => {
+        const minesweeper = new Minesweeper()
+        let emptyMineMat: string[][] = [
+            ['.', '.', '.'],
+            ['.', '.', '.'],
+            ['.', '.', '.']
+        ]
 
-      let mat: string[][] = [
-          ['.', '.', '.'],
-          ['.', '.', '.'],
-          ['.', '.', '.']
-      ]
+        let result = minesweeper.calculate(emptyMineMat);
 
-      let expected: string[][] = [
-          ['0', '0', '0'],
-          ['0', '0', '0'],
-          ['0', '0', '0']
-      ]
-
-    expect(example.calculate(mat)).toStrictEqual(expected)
-  })
+        let expected: string[][] = [
+            ['0', '0', '0'],
+            ['0', '0', '0'],
+            ['0', '0', '0']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
 
     it('matrix with bomb on 1:1', () => {
-    const example = new Minesweeper()
+        const minesweeper = new Minesweeper()
+        let singleMineMat: string[][] = [
+            ['*', '.', '.'],
+            ['.', '.', '.'],
+            ['.', '.', '.']
+        ]
 
-      let mat: string[][] = [
-          ['*', '.', '.'],
-          ['.', '.', '.'],
-          ['.', '.', '.']
-      ]
+        let result = minesweeper.calculate(singleMineMat);
 
-      let expected: string[][] = [
-          ['*', '1', '0'],
-          ['1', '1', '0'],
-          ['0', '0', '0']
-      ]
-
-    expect(example.calculate(mat)).toStrictEqual(expected)
-  })
+        let expected: string[][] = [
+            ['*', '1', '0'],
+            ['1', '1', '0'],
+            ['0', '0', '0']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
 })
 /*
 
