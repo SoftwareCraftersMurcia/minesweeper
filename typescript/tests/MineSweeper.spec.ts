@@ -35,6 +35,23 @@ describe('MineSweeper', () => {
         ]);
     });
 
+    it('a field with all mines returns all mines', () => {
+        const mineSweeper = new MineSweeper()
+
+        let field = [
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*'],
+        ];
+        let solution = mineSweeper.solve(field);
+
+        expect(solution).toEqual([
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*'],
+        ]);
+    });
+
     it('acceptance test', () => {
         const mineSweeper = new MineSweeper()
 
