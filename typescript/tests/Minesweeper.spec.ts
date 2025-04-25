@@ -1,8 +1,13 @@
 import {Minesweeper} from '../src/Minesweeper'
 
 describe('kata-setup', () => {
+    let minesweeper: Minesweeper
+
+    beforeEach(() => {
+        minesweeper = new Minesweeper()
+    })
+
     it('empty matrix returns all zeros', () => {
-        const minesweeper = new Minesweeper()
         let emptyMineMat: string[][] = [
             ['.', '.', '.'],
             ['.', '.', '.'],
@@ -20,7 +25,6 @@ describe('kata-setup', () => {
     })
 
     it('matrix with bomb on 0:0', () => {
-        const minesweeper = new Minesweeper()
         let singleMineMat: string[][] = [
             ['*', '.', '.'],
             ['.', '.', '.'],
@@ -38,7 +42,6 @@ describe('kata-setup', () => {
     })
 
     it('matrix with bomb on 0:1 ', () => {
-        const minesweeper = new Minesweeper()
         let singleMineMat: string[][] = [
             ['.', '*', '.'],
             ['.', '.', '.'],
@@ -56,7 +59,6 @@ describe('kata-setup', () => {
     })
 
     it('matrix with bomb in center ', () => {
-        const minesweeper = new Minesweeper()
         let singleMineMat: string[][] = [
             ['.', '.', '.'],
             ['.', '*', '.'],
@@ -72,8 +74,8 @@ describe('kata-setup', () => {
         ]
         expect(result).toStrictEqual(expected)
     })
+
     it('matrix with bomb in right limit ', () => {
-        const minesweeper = new Minesweeper()
         let singleMineInRightLimitMat: string[][] = [
             ['.', '.', '.'],
             ['.', '.', '.'],
@@ -91,7 +93,6 @@ describe('kata-setup', () => {
     })
 
     it('matrix with two bombs ', () => {
-        const minesweeper = new Minesweeper()
         let twoMinesInMat: string[][] = [
             ['.', '.', '.'],
             ['*', '.', '*'],
@@ -109,7 +110,6 @@ describe('kata-setup', () => {
     })
 
     it('matrix with two adjacent bombs ', () => {
-        const minesweeper = new Minesweeper()
         let twoMinesInMat: string[][] = [
             ['.', '.', '.'],
             ['.', '.', '*'],
@@ -125,6 +125,4 @@ describe('kata-setup', () => {
         ]
         expect(result).toStrictEqual(expected)
     })
-
-
 })
