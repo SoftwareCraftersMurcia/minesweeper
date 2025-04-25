@@ -1,8 +1,8 @@
-import { Example } from '../src/Example'
+import { Minesweeper } from '../src/Minesweeper'
 
 describe('kata-setup', () => {
-  it('empty matrix', () => {
-    const example = new Example()
+  it('empty matrix returns all zeros', () => {
+    const example = new Minesweeper()
 
       let mat: string[][] = [
           ['.', '.', '.'],
