@@ -13,7 +13,7 @@ export class MineSweeper {
     }
 
     private solvePosition(x: number, y: number, field: string[][]) {
-        if (field[y][x] === this._MINE) {
+        if (this.containsAMine(y, x, field)) {
             return this._MINE;
         }
         let count = 0;
