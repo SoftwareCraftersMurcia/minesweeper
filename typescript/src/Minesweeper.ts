@@ -20,17 +20,17 @@ export class Minesweeper {
         return result
     }
 
-    private add1BombToAdjacentPositions(result: string[][], i: number, j: number) {
+    private add1BombToAdjacentPositions(result: string[][], originPosX: number, originPosY: number) {
         for (let k = -1; k <= 1; k++) {
             for (let l = -1; l <= 1; l++) {
                 if (k === 0 && l === 0) {
-                    result[i][j] = "*";
+                    result[originPosX][originPosY] = "*";
                     continue
                 }
-                if (i + k < 0 || i + k >= result.length || j + l < 0 || j + l >= result[i].length) {
+                if (originPosX + k < 0 || originPosX + k >= result.length || originPosY + l < 0 || originPosY + l >= result[originPosX].length) {
                     continue
                 }
-                result[i + k][j + l] = (parseInt(result[i + k][j + l]) + 1).toString();
+                result[originPosX + k][originPosY + l] = (parseInt(result[originPosX + k][originPosY + l]) + 1).toString();
             }
         }
     }
