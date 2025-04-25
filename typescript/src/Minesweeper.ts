@@ -11,21 +11,21 @@ export class Minesweeper {
         for (let i = 0; i < result.length; i++) {
             for (let j = 0; j < result[i].length; j++) {
                 const value = mat[i][j];
-                if (value ==='*'){
+                if (value === '*') {
                     result[i][j] = "*";
 
-                    if(i === 0 && j === 0) {
-                        result[0][1] = "1";
-                        result[1][0] = "1";
-                        result[1][1] = "1";
+                    if (i === 0 && j === 0) {
+                        result[i][j + 1] = "1";
+                        result[i + 1][j] = "1";
+                        result[i + 1][j + 1] = "1";
                     }
 
-                    if(i === 0 && j === 1) {
-                        result[0][0] = "1";
-                        result[0][2] = "1";
-                        result[1][0] = "1";
-                        result[1][1] = "1";
-                        result[1][2] = "1";
+                    if (i === 0 && j === 1) {
+                        result[i][j - 1] = "1";
+                        result[i][j + 1] = "1";
+                        result[i + 1][j - 1] = "1";
+                        result[i + 1][j] = "1";
+                        result[i + 1][j + 1] = "1";
                     }
                 }
             }
