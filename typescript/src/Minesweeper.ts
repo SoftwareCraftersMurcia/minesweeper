@@ -1,4 +1,5 @@
 export class Minesweeper {
+    private readonly BOMB = '*';
     calculate(mat: string[][]): string[][] {
         let result: string[][] = [];
         for (let i = 0; i < mat.length; i++) {
@@ -11,7 +12,7 @@ export class Minesweeper {
         for (let i = 0; i < result.length; i++) {
             for (let j = 0; j < result[i].length; j++) {
                 const value = mat[i][j];
-                if (value === '*') {
+                if (value === this.BOMB) {
                     this.add1BombToAdjacentPositions(result, i, j);
                 }
             }
@@ -21,21 +22,21 @@ export class Minesweeper {
     }
 
     private add1BombToAdjacentPositions(result: string[][], originPosX: number, originPosY: number) {
-        function checkLimits(k: number, l: number) {
+        function isCoordOutOfBounds(k: number, l: number) {
             return originPosX + k < 0 || originPosX + k >= result.length || originPosY + l < 0 || originPosY + l >= result[originPosX].length;
         }
 
         for (let k = -1; k <= 1; k++) {
             for (let l = -1; l <= 1; l++) {
                 if (k === 0 && l === 0) {
-                    result[originPosX][originPosY] = "*";
+                    result[originPosX][originPosY] = this.BOMB;
                     continue
                 }
-                if (checkLimits(k, l)) {
+                if (isCoordOutOfBounds(k, l)) {
                     continue
                 }
 
-                if (result[originPosX + k][originPosY + l] === '*') {
+                if (result[originPosX + k][originPosY + l] === this.BOMB) {
                     continue;
                 }
                 result[originPosX + k][originPosY + l] = (parseInt(result[originPosX + k][originPosY + l]) + 1).toString();
