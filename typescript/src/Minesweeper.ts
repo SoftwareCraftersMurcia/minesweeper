@@ -27,6 +27,17 @@ export class Minesweeper {
                         result[i + 1][j] = "1";
                         result[i + 1][j + 1] = "1";
                     }
+
+                    if (i === 1 && j === 1) {
+                        result[i - 1][j - 1] = "1";
+                        result[i - 1][j] = "1";
+                        result[i - 1][j + 1] = "1";
+                        result[i][j - 1] = "1";
+                        result[i][j + 1] = "1";
+                        result[i + 1][j - 1] = "1";
+                        result[i + 1][j] = "1";
+                        result[i + 1][j + 1] = "1";
+                    }
                 }
             }
         }

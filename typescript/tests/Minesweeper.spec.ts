@@ -54,4 +54,22 @@ describe('kata-setup', () => {
         ]
         expect(result).toStrictEqual(expected)
     })
+
+    it('matrix with bomb in center ', () => {
+        const minesweeper = new Minesweeper()
+        let singleMineMat: string[][] = [
+            ['.', '.', '.'],
+            ['.', '*', '.'],
+            ['.', '.', '.']
+        ]
+
+        let result = minesweeper.calculate(singleMineMat);
+
+        let expected: string[][] = [
+            ['1', '1', '1'],
+            ['1', '*', '1'],
+            ['1', '1', '1']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
 })
