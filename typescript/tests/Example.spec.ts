@@ -18,6 +18,24 @@ describe('kata-setup', () => {
 
     expect(example.calculate(mat)).toStrictEqual(expected)
   })
+
+    it('matrix with bomb on 1:1', () => {
+    const example = new Minesweeper()
+
+      let mat: string[][] = [
+          ['*', '.', '.'],
+          ['.', '.', '.'],
+          ['.', '.', '.']
+      ]
+
+      let expected: string[][] = [
+          ['*', '1', '0'],
+          ['1', '1', '0'],
+          ['0', '0', '0']
+      ]
+
+    expect(example.calculate(mat)).toStrictEqual(expected)
+  })
 })
 /*
 
