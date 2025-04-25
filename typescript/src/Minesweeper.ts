@@ -11,9 +11,11 @@ export class Minesweeper {
         for (let i = 0; i < result.length; i++) {
             for (let j = 0; j < result[i].length; j++) {
                 const value = mat[i][j];
+                if (value ==='*'){
+                    result[i][j] = "*";
+                }
 
                 if(value === '*' && i === 0 && j === 0) {
-                    result[0][0] = "*";
                     result[0][1] = "1";
                     result[1][0] = "1";
                     result[1][1] = "1";
@@ -21,7 +23,6 @@ export class Minesweeper {
 
                 if(value === '*' && i === 0 && j === 1) {
                     result[0][0] = "1";
-                    result[0][1] = "*";
                     result[0][2] = "1";
                     result[1][0] = "1";
                     result[1][1] = "1";
