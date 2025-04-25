@@ -19,14 +19,15 @@ export class MineSweeper {
             for (let j = -1; j <= 1; j++) {
                 let row = y + i;
                 let column = x + j;
-                if (row < 0 || row >= field.length || column < 0 || column >= field[row].length) {
-                    continue;
-                }
-                if (field[row][column] === '*') {
+                if (this.isValidPosition(row, column, field) && field[row][column] === '*') {
                     count++;
                 }
             }
         }
         return count.toString();
+    }
+
+    private isValidPosition(row: number, column: number, field: string[][]) {
+        return row >= 0 && row < field.length && column >= 0 && column < field[row].length;
     }
 }
