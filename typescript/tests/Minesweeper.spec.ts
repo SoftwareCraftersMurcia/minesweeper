@@ -125,4 +125,55 @@ describe('kata-setup', () => {
         ]
         expect(result).toStrictEqual(expected)
     })
+
+    it('matrix with all bombs should return all bombs', () => {
+        let allBombs: string[][] = [
+            ['*', '*', '*'],
+            ['*', '*', '*'],
+            ['*', '*', '*']
+        ]
+
+        let result = minesweeper.calculate(allBombs);
+
+        let expected: string[][] = [
+            ['*', '*', '*'],
+            ['*', '*', '*'],
+            ['*', '*', '*']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
+
+    it('matrix with all bombs except one center should count 8', () => {
+        let allBombs: string[][] = [
+            ['*', '*', '*'],
+            ['*', '.', '*'],
+            ['*', '*', '*']
+        ]
+
+        let result = minesweeper.calculate(allBombs);
+
+        let expected: string[][] = [
+            ['*', '*', '*'],
+            ['*', '8', '*'],
+            ['*', '*', '*']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
+
+    it('matrix with all bombs should return all bombs', () => {
+        let allBombs: string[][] = [
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*']
+        ]
+
+        let result = minesweeper.calculate(allBombs);
+
+        let expected: string[][] = [
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*'],
+            ['*', '*', '*', '*']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
 })
