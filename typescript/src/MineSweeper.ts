@@ -17,12 +17,12 @@ export class MineSweeper {
         let count = 0;
         for (let i = -1; i <= 1; i++) {
             for (let j = -1; j <= 1; j++) {
-                let column = y + i;
-                let row = x + j;
-                if (column < 0 || column >= field.length || row < 0 || row >= field[column].length) {
+                let row = y + i;
+                let column = x + j;
+                if (row < 0 || row >= field.length || column < 0 || column >= field[row].length) {
                     continue;
                 }
-                if (field[column][row] === '*') {
+                if (field[row][column] === '*') {
                     count++;
                 }
             }

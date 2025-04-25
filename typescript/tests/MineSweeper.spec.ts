@@ -35,7 +35,7 @@ describe('MineSweeper', () => {
         ]);
     });
 
-    it.skip('acceptance test', () => {
+    it('acceptance test', () => {
         const mineSweeper = new MineSweeper()
 
         let field = [
@@ -45,7 +45,7 @@ describe('MineSweeper', () => {
         ];
         let solution = mineSweeper.solve(4, 3, field);
 
-        expect(solution).toBe([
+        expect(solution).toStrictEqual([
             ['*', '2', '1', '1'],
             ['1', '2', '*', '1'],
             ['0', '1', '1', '1'],
