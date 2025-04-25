@@ -72,4 +72,23 @@ describe('kata-setup', () => {
         ]
         expect(result).toStrictEqual(expected)
     })
+    it('matrix with bomb in right limit ', () => {
+        const minesweeper = new Minesweeper()
+        let singleMineInRightLimitMat: string[][] = [
+            ['.', '.', '.'],
+            ['.', '.', '.'],
+            ['.', '.', '*']
+        ]
+
+        let result = minesweeper.calculate(singleMineInRightLimitMat);
+
+        let expected: string[][] = [
+            ['0', '0', '0'],
+            ['0', '1', '1'],
+            ['0', '1', '*']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
+
+
 })
