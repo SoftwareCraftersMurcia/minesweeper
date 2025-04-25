@@ -30,7 +30,9 @@ export class Minesweeper {
                 if (originPosX + k < 0 || originPosX + k >= result.length || originPosY + l < 0 || originPosY + l >= result[originPosX].length) {
                     continue
                 }
-                result[originPosX + k][originPosY + l] = (parseInt(result[originPosX + k][originPosY + l]) + 1).toString();
+                if(result[originPosX + k][originPosY + l] !== '*') {
+                    result[originPosX + k][originPosY + l] = (parseInt(result[originPosX + k][originPosY + l]) + 1).toString();
+                }
             }
         }
     }
