@@ -1,9 +1,20 @@
 import { MineSweeper } from '../src/MineSweeper'
 
 describe('MineSweeper', () => {
-  it('example test', () => {
+  it.skip('acceptance test', () => {
     const mineSweeper = new MineSweeper()
 
-    expect(mineSweeper.method()).toBe(true)
-  })
+      let field = [
+          ['*', '.', '.', '.'],
+          ['.', '.', '*', '.'],
+          ['.', '.', '.', '.'],
+      ];
+      let solution = mineSweeper.solve(4, 3, field);
+
+      expect(solution).toBe([
+          ['*', '2', '1', '1'],
+          ['1', '2', '*', '1'],
+          ['0', '1', '1', '1'],
+      ]);
+  });
 })

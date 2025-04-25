@@ -1,5 +1,5 @@
 export class MineSweeper {
-  method (): boolean {
-    return true
+  solve (xSize: number, ySize: number, field: string[][]): string[][] {
+    return [];
   }
 }
