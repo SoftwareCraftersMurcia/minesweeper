@@ -17,12 +17,16 @@ export class MineSweeper {
         let count = 0;
         for (let row = y - 1; row <= y + 1; row++) {
             for (let column = x - 1; column <= x + 1; column++) {
-                if (this.isValidPosition(row, column, field) && field[row][column] === '*') {
+                if (this.containsAMine(row, column, field)) {
                     count++;
                 }
             }
         }
         return count.toString();
+    }
+
+    private containsAMine(row: number, column: number, field: string[][]) {
+        return this.isValidPosition(row, column, field) && field[row][column] === '*';
     }
 
     private isValidPosition(row: number, column: number, field: string[][]) {
