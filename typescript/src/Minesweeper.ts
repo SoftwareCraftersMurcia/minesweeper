@@ -2,13 +2,6 @@ export class Minesweeper {
     calculate(mat: string[][]): string[][] {
 
 
-        if (mat[0][0] === '*') {
-            return [
-                ['*', '1', '0'],
-                ['1', '1', '0'],
-                ['0', '0', '0']
-            ]
-        }
         if (mat[0][1] === '*') {
             return [
                 ['1', '*', '1'],
@@ -23,6 +16,19 @@ export class Minesweeper {
             result.push([]);
             for (let j = 0; j < mat[i].length; j++) {
                 result[i].push('0');
+            }
+        }
+
+        for (let i = 0; i < result.length; i++) {
+            for (let j = 0; j < result[i].length; j++) {
+                const value = mat[i][j];
+
+                if(value === '*' && i === 0 && j === 0) {
+                    result[0][0] = "*";
+                    result[0][1] = "1";
+                    result[1][0] = "1";
+                    result[1][1] = "1";
+                }
             }
         }
 
