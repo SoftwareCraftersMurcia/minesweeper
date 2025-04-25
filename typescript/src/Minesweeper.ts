@@ -28,24 +28,16 @@ export class Minesweeper {
                         result[i + 1][j + 1] = "1";
                     }
 
-                    for (let k = -1; k < 1; k++) {
-                        for (let l = -1; l < 1; l++) {
-                            if (k === 0 && l === 0) {
-                                continue
+                    if (i === 1 && j === 1) {
+                        for (let k = -1; k <= 1; k++) {
+                            for (let l = -1; l <= 1; l++) {
+                                if (k === 0 && l === 0) {
+                                    continue
+                                }
+                                result[i + k][j + l] = "1";
                             }
-                            result[k][l] = "1";
                         }
                     }
-                    // if (i === 1 && j === 1) {
-                    //     result[i - 1][j - 1] = "1";
-                    //     result[i - 1][j] = "1";
-                    //     result[i - 1][j + 1] = "1";
-                    //     result[i][j - 1] = "1";
-                    //     result[i][j + 1] = "1";
-                    //     result[i + 1][j - 1] = "1";
-                    //     result[i + 1][j] = "1";
-                    //     result[i + 1][j + 1] = "1";
-                    // }
                 }
             }
         }
