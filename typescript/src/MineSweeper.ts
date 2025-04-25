@@ -15,10 +15,8 @@ export class MineSweeper {
             return '*';
         }
         let count = 0;
-        for (let i = -1; i <= 1; i++) {
-            for (let j = -1; j <= 1; j++) {
-                let row = y + i;
-                let column = x + j;
+        for (let row = y - 1; row <= y + 1; row++) {
+            for (let column = x - 1; column <= x + 1; column++) {
                 if (this.isValidPosition(row, column, field) && field[row][column] === '*') {
                     count++;
                 }
