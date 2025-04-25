@@ -13,13 +13,13 @@ export class MineSweeper {
     }
 
     private solvePosition(x: number, y: number, field: string[][]) {
-        if (this.containsAMine(y, x, field)) {
+        if (this.containsAMine(x, y, field)) {
             return this._MINE;
         }
         let count = 0;
         for (let row = y - 1; row <= y + 1; row++) {
             for (let column = x - 1; column <= x + 1; column++) {
-                if (this.containsAMine(row, column, field)) {
+                if (this.containsAMine(column, row, field)) {
                     count++;
                 }
             }
@@ -27,11 +27,11 @@ export class MineSweeper {
         return count.toString();
     }
 
-    private containsAMine(row: number, column: number, field: string[][]) {
-        return this.isValidPosition(row, column, field) && field[row][column] === this._MINE;
+    private containsAMine(column: number, row: number, field: string[][]) {
+        return this.isValidPosition(column, row, field) && field[row][column] === this._MINE;
     }
 
-    private isValidPosition(row: number, column: number, field: string[][]) {
+    private isValidPosition(column: number, row: number, field: string[][]) {
         return row >= 0 && row < field.length && column >= 0 && column < field[row].length;
     }
 }
