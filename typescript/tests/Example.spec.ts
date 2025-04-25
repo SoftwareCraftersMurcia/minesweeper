@@ -19,7 +19,7 @@ describe('kata-setup', () => {
         expect(result).toStrictEqual(expected)
     })
 
-    it('matrix with bomb on 1:1', () => {
+    it('matrix with bomb on 0:0', () => {
         const minesweeper = new Minesweeper()
         let singleMineMat: string[][] = [
             ['*', '.', '.'],
@@ -32,6 +32,24 @@ describe('kata-setup', () => {
         let expected: string[][] = [
             ['*', '1', '0'],
             ['1', '1', '0'],
+            ['0', '0', '0']
+        ]
+        expect(result).toStrictEqual(expected)
+    })
+
+    it('matrix with bomb on 0:1 ', () => {
+        const minesweeper = new Minesweeper()
+        let singleMineMat: string[][] = [
+            ['.', '*', '.'],
+            ['.', '.', '.'],
+            ['.', '.', '.']
+        ]
+
+        let result = minesweeper.calculate(singleMineMat);
+
+        let expected: string[][] = [
+            ['1', '*', '1'],
+            ['1', '1', '1'],
             ['0', '0', '0']
         ]
         expect(result).toStrictEqual(expected)
