@@ -52,6 +52,23 @@ describe('MineSweeper', () => {
         ]);
     });
 
+    it('a field with all mines except one in the center returns an 8', () => {
+        const mineSweeper = new MineSweeper()
+
+        let field = [
+            ['*', '*', '*', '*'],
+            ['*', '.', '*', '*'],
+            ['*', '*', '*', '*'],
+        ];
+        let solution = mineSweeper.solve(field);
+
+        expect(solution).toEqual([
+            ['*', '*', '*', '*'],
+            ['*', '8', '*', '*'],
+            ['*', '*', '*', '*'],
+        ]);
+    });
+
     it('acceptance test', () => {
         const mineSweeper = new MineSweeper()
 
